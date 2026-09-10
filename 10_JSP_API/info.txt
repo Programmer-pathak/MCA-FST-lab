@@ -1,0 +1,42 @@
+inside tomcat-webapps folder create folder - 10_JSP_API and open it in vs
+
+run xampp and tomcat
+
+open url - http://localhost:8080/10_JSP_API/student.jsp
+
+
+-------second phase------
+go to c drive xampp - htdocs and create folder - lab10_php_jsp_frontend and open it in vscode then create file - index.php -
+"<?php
+$url = "http://localhost:8080/10_JSP_API/student.jsp";
+
+$response = file_get_contents($url);
+
+if ($response === false) {
+    die("JSP API se data fetch nahi hua. Tomcat server aur JSP URL check karo.");
+}
+
+$data = json_decode($response, true);
+
+if ($data === null) {
+    die("JSON data decode nahi ho saka.");
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP with JSP API</title>
+</head>
+<body>
+
+    <h2>Student Details from JSP API</h2>
+
+    <p><b>ID:</b> <?php echo $data['id']; ?></p>
+    <p><b>Name:</b> <?php echo $data['name']; ?></p>
+    <p><b>Course:</b> <?php echo $data['course']; ?></p>
+
+</body>
+</html>"
+
+open url - http://localhost/lab10_php_jsp_frontend/

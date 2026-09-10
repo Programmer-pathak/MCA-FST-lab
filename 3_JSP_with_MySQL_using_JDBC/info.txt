@@ -1,0 +1,28 @@
+# Install
+MySQL Server — https://dev.mysql.com/downloads/installer/
+MySQL Workbench — database/table banane ke liye GUI
+MySQL Connector/J — https://dev.mysql.com/downloads/connector/j/
+
+
+
+add -- mysql-connector-j-26.7.0.jar   to the tomcat , lib folder
+
+in mysqlworkspace--
+CREATE DATABASE studentdb;
+USE studentdb;
+
+CREATE TABLE student (
+    sid VARCHAR(10) PRIMARY KEY,
+    sname VARCHAR(30) NOT NULL,
+    course VARCHAR(20) NOT NULL
+);
+
+SHOW TABLES;
+
+open:- http://localhost:8080/3_JSP_with_MySQL_using_JDBC/register.jsp
+
+
+to check database
+USE studentdb;
+
+SELECT * FROM student;
